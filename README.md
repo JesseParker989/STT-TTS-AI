@@ -41,3 +41,5 @@ Under C/C++ -> General, add the path to the curl include directory in Additional
 Under Linker -> General, add the path to the curl lib directory in Additional Library Directories.
 
 Under Linker -> Input, add libcurl.lib to Additional Dependencies.
+
+Change the wake word to what you want it to be!!!!
