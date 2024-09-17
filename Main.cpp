@@ -50,6 +50,32 @@ int main() {
     string apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your API key
     string audioFilePath = "path_to_your_audio_file.wav"; // Replace with your path to the audio file
 
+    string wakeWord = "Hey AI";  // Example wake word
+
+    // Simulate continuous listening loop
+    bool wakeWordDetected = false;
+
+    while (!wakeWordDetected) {
+        // Step 1: Send a short segment of audio to Whisper to check for the wake word
+        string response = sendAudioToWhisper(apiKey, audioFilePath);
+        auto jsonResponse = nlohmann::json::parse(response);
+        string transcript = jsonResponse["text"];
+
+        cout << "Transcribed Text: " << transcript << endl;
+
+        // Step 2: Detect wake word in the transcribed text
+        if (detectWakeWord(transcript, wakeWord)) {
+            cout << "Wake word detected! Ready to listen!" << endl;
+            wakeWordDetected = true;
+        }
+        else {
+            cout << "Wake word not detected, listening again...very subtly..." << endl;
+        }
+
+        // Sleep to simulate continuous audio capture
+        this_thread::sleep_for(chrono::seconds(3));  // Wait a bit before rechecking
+    }
+
     // Step 1: Send audio file to Whisper API to get the transcribed text
     string response = sendAudioToWhisper(apiKey, audioFilePath);
 
