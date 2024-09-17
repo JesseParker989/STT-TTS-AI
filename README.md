@@ -12,6 +12,7 @@ Follow the installation guide for Windows.
 Link libcurl to your Visual Studio project (I’ll provide instructions below).
 
 nlohmann/json:
+
 Download the json.hpp file from the GitHub repo.
 Add json.hpp to your project.
 Step 3: Visual Studio Setup
