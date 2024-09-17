@@ -3,6 +3,7 @@ Step 1: OpenAI API Setup
 Get an OpenAI API Key:
 Sign up or log in to OpenAI.
 Go to the API section and generate an API key. This will be needed for API requests.
+
 Step 2: Install Required Libraries
 You’ll still need to install and link certain libraries for HTTP requests (libcurl) and JSON parsing (nlohmann/json).
 
